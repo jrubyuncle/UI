@@ -68,7 +68,7 @@ class TopicsController < ApplicationController
 	end
 	def downvote
 		@topic = Topic.find(params[:id])
-		@topic.votes.last.destroy
+		@topic.votes.last.try(:destroy)
 		redirect_to(topics_path)
 	end
   private
