@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
+
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'pg'
 gem 'rails_12factor', group: :production
+gem 'puma'
 
 gem 'rails', '4.2.3'
 gem 'sass-rails', '~> 5.0'
