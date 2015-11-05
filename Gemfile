@@ -4,7 +4,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'pg'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 gem 'rails', '4.2.3'
 gem 'sass-rails', '~> 5.0'
