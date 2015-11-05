@@ -8,12 +8,12 @@ Rails.application.routes.draw do
 			post :join
 			post :quit
 		end
-		resources :posts
+		resources :posts, except: [:show, :index]
 	end
 
 	namespace :account do
-		resources :groups
-		resources :posts
+		resources :groups, only: [:index]
+		resources :posts, only: [:index]
 	end
 	
 end

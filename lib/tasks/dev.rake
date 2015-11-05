@@ -2,7 +2,7 @@
 namespace :dev do
   desc "Rebuild system"
   task :build => [
-  		"tmp:clear", 
+  		"tmp:clear",
   		"log:clear",
   		"db:drop",
   		"db:create",

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018131310) do
+ActiveRecord::Schema.define(version: 20151105075722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 20151018131310) do
     t.datetime "updated_at", null: false
   end
 
+  add_index "group_users", ["group_id"], name: "index_group_users_on_group_id", using: :btree
+  add_index "group_users", ["user_id"], name: "index_group_users_on_user_id", using: :btree
+
   create_table "groups", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -32,6 +35,8 @@ ActiveRecord::Schema.define(version: 20151018131310) do
     t.integer  "posts_count", default: 0
   end
 
+  add_index "groups", ["user_id"], name: "index_groups_on_user_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.text     "content"
     t.integer  "group_id"
@@ -39,6 +44,9 @@ ActiveRecord::Schema.define(version: 20151018131310) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
   end
+
+  add_index "posts", ["group_id"], name: "index_posts_on_group_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
