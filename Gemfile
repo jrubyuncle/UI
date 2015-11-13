@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -31,6 +31,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem "rails_12factor", group: :production
+gem "puma", group: :production
 
 gem "devise"
 gem "bootstrap-sass"
