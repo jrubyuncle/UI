@@ -16,3 +16,13 @@
 //= require bootstrap/dropdown
 //= require bootstrap/alert
 //= require_tree .
+
+$(document).ready(function(){
+	displayMenu("#menu0");
+});
+
+$(document).on("page:change", function(){
+	
+})
+
+turbolinks.enableProgressBar();

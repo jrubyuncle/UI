@@ -6,12 +6,33 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'sidebar' %>
 </head>
+
 <body>
-  <div class="container">
-    <%= render "common/navbar" %>
+  <div id="wrapper" class="container">
+    <%# render "common/navbar" %>
+    <%= render "common/menu" %>
+    <%= render "common/sidebar" %>
 		<%= notice_message %>
-    <%= yield %>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+  			<%= yield %>
+      </div>
+    </div>  
 	</div>
+
+  <!-- Menu Toggle Script -->
+  <script type="text/javascript">
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+  </script>
+  <%= javascript_include_tag 'menu-function' %>
+
 </body>
 </html>

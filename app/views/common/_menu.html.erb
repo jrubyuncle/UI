@@ -1,0 +1,63 @@
+ 
+<h3>Tabs With Dropdown Menu</h3>
+  <ul class="nav navbar-nav navbar-right">
+
+    <li>
+      <%= link_to "#" do  %>
+        購物車 <i class="fa fa-shopping-cart"> </i> (0)
+      <% end %>
+    </li>
+
+    <% if !current_user %>
+      <li> <%= link_to("登入", new_user_session_path) %> </li>
+    <% else %>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          Hi!, <%= current_user.email %>
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <% if current_user.admin? %>
+            <li>
+              <%= link_to("Admin 選單", admin_products_path ) %>
+            </li>
+          <% end %>
+          <li>
+            <%= link_to("登出", destroy_user_session_path, method: :delete ) %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+	</ul>
+
+<ul class="nav nav-tabs">
+
+  <li class="active">
+  	<li><%= link_to "Web",						tutors_path, id: "mi_0" %></li>
+	</li>
+  <li>
+  	<li><%= link_to "UI",							tutors_path, id: "mi_1" %></li>
+	</li>	
+  <li>
+  	<li><%= link_to "Backend",				tutors_path, id: "mi_2" %></li>
+	</li>
+  <li>
+  	<li><%= link_to "Special Topic",	tutors_path, id: "mi_3" %></li>
+	</li>
+  <li>
+  	<li><%= link_to "Project",				day0_path, id: "mi_4" %></li>
+	</li>
+
+  <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Options<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "Show/Hide Index",			display_index_path, id: "btnDisplayIndex" %></li>
+      <li><%= link_to "Change Theme",					change_theme_path,	id: "btnChangeTheme" %></li>
+    </ul>
+	</li>
+
+  <li>
+  	<li><%= link_to "About", about_path, id: "mi_about" %></li>
+	</li>
+</ul>
+

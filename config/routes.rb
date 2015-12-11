@@ -6,8 +6,18 @@ Rails.application.routes.draw do
 	end
 
 	resources :products
+	# root "products#index"
 
-	root "products#index"
+	resources :tutors 
+	#get 'chap00', 'chap01','chap02','chap03', controller: :tutors
+	#get 'chap10', 'chap10','chap11','chap12','chap13','chap14','chap15', controller: :tutors
+	#get 'chap20','chap21','chap22','chap23', controller: :tutors
+	#get 'chap30','chap31','chap32','chap33','chap34', controller: :tutors
+	get 'day0','day1','day2','day3','day4','day5','day6','day7','day8', controller: :tutors
+  get 'options', 'display_index', 'change_theme', controller: :tutors
+	get 'about' => 'tutors#me'
+
+	root "tutors#me"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
